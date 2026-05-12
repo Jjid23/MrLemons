@@ -29,7 +29,7 @@ export function Layout({ children, user, permissions = [], view, setView }: Layo
         
         <div className="flex items-center gap-4 mb-16 px-8 w-full group cursor-default">
           <div className="w-12 h-12 bg-lemon rounded-3xl flex items-center justify-center text-stone-800 shrink-0 shadow-lg shadow-lemon/20 transform group-hover:rotate-12 transition-transform duration-500">
-              <img src="/logo.png" alt="Mr Lemon" className="w-full h-full object-cover p-1" />
+              <img src="/Lemon.jpg" alt="Mr Lemon" className="w-full h-full object-cover p-1" />
             </div>
             <div className="hidden md:block transition-all duration-300">
             <h1 className="font-black text-2xl tracking-tight text-stone-800 dark:text-stone-100 leading-none">

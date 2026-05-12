@@ -62,7 +62,7 @@ export function Login() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-20 left-20 text-lemon opacity-20 hidden lg:block"
       >
-        <img src="/logo.png" alt="" className="w-full opacity-10" />
+        <img src="/Lemon.jpg" alt="" className="w-full opacity-10" />
       </motion.div>
       <motion.div 
         animate={{ 
@@ -72,7 +72,7 @@ export function Login() {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-20 right-20 w-40 h-40 opacity-10 hidden lg:block"
       >
-        <img src="/logo.png" alt="" className="w-full opacity-10" />
+        <img src="/Lemon.jpg" alt="" className="w-full opacity-10" />
       </motion.div>
 
       <motion.div 
@@ -85,7 +85,7 @@ export function Login() {
             whileHover={{ rotate: 15, scale: 1.1 }}
             className="w-24 h-24 bg-white rounded-[32px] flex items-center justify-center text-stone-800 shadow-2xl shadow-lemon/30 transform transition-all duration-500 overflow-hidden border-4 border-lemon"
           >
-            <img src="/logo.png" alt="Mr Lemon Logo" className="w-full h-full object-cover" />
+            <img src="/Lemon.jpg" alt="Mr Lemon Logo" className="w-full h-full object-cover" />
           </motion.div>
           <div>
             <h1 className="text-5xl font-black text-stone-900 tracking-tighter leading-none italic">MR LEMON</h1>
