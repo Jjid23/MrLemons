@@ -91,7 +91,10 @@ export function POS({ user }: { user: any }) {
   };
 
   const isAddOnOutOfStock = (addonName: string) => {
-    return getStock(addonName) < 1;
+    const inventoryItem = inventory.find(i => i.name === addonName);
+    // Only consider out of stock if the item exists in inventory and quantity is 0
+    // If item doesn't exist in inventory, assume it's available
+    return inventoryItem && inventoryItem.quantity < 1;
   };
   
   const [showPayment, setShowPayment] = useState(false);
