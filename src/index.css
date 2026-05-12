@@ -1,0 +1,56 @@
+@import "tailwindcss";
+ 
+ @theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-natural: #faf9f6;
+  --color-lemon: #F4D03F;
+  --color-lime: #A2D149;
+  --color-olive: #3D4A3E;
+  --color-zest: #FFEA00;
+
+  /* Dark mode specific - if needed explicitly, but usually @apply is better */
+  --color-dark-bg: #0c0a09;
+  --color-dark-card: #1c1917;
+  --color-dark-border: #292524;
+}
+
+@layer base {
+  html {
+    font-size: 16px; /* Base for rem */
+  }
+
+  body {
+    @apply text-stone-900 antialiased bg-natural selection:bg-lemon/30 transition-colors duration-300;
+  }
+
+  /* Dark mode mappings */
+  .dark body {
+    @apply bg-stone-950 text-stone-100;
+  }
+}
+
+@layer utilities {
+  .bg-grid-stone {
+    background-image: radial-gradient(circle, #e5e7eb 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .dark .bg-grid-stone {
+    background-image: radial-gradient(circle, #292524 1px, transparent 1px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-stone-200 rounded-full hover:bg-stone-300 transition-colors;
+}

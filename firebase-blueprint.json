@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "System users",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "roleId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "roleId"]
+    },
+    "roles": {
+      "title": "Role",
+      "description": "User roles and permissions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "permissions": { 
+          "type": "array", 
+          "items": { 
+            "type": "string",
+            "enum": ["orders.create", "orders.read", "inventory.manage", "reports.view", "users.manage", "roles.manage"]
+          }
+        },
+        "isSystem": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "permissions"]
+    },
+    "inventory": {
+      "title": "Inventory Item",
+      "description": "Stock items and consumables",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "quantity": { "type": "number" },
+        "unit": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "quantity", "unit"]
+    },
+    "orders": {
+      "title": "Order",
+      "description": "Customer transactions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "drink": { "type": "string" },
+              "size": { "type": "string" },
+              "flavor": { "type": "string" },
+              "addOns": { "type": "array", "items": { "type": "string" } },
+              "price": { "type": "number" },
+              "quantity": { "type": "number" }
+            }
+          }
+        },
+        "subtotal": { "type": "number" },
+        "vat": { "type": "number" },
+        "total": { "type": "number" },
+        "paymentMethod": { "type": "string", "enum": ["cash", "gcash"] },
+        "cashierId": { "type": "string" },
+        "cashierName": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["items", "total", "paymentMethod", "cashierId"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "users",
+      "description": "Collection of system users"
+    },
+    "roles": {
+      "schema": "roles",
+      "description": "Dynamic role definitions"
+    },
+    "inventory": {
+      "schema": "inventory",
+      "description": "Real-time stock tracking"
+    },
+    "orders": {
+      "schema": "orders",
+      "description": "Transaction history"
+    }
+  }
+}
